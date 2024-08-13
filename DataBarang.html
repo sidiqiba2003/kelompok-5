@@ -5,22 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Barang</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
         table, th, td {
-            border: 1px solid black;
+            border: 1px solid #ddd;
         }
         th, td {
-            padding: 8px;
+            padding: 12px;
             text-align: left;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #f4f4f4;
         }
         .actions {
             text-align: center;
+        }
+        button {
+            padding: 6px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .delete-button {
+            background-color: #f44336;
+        }
+        .delete-button:hover {
+            background-color: #e53935;
+        }
+        .add-button {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .form-container {
+            display: none;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-container button {
+            background-color: #4CAF50;
         }
     </style>
 </head>
@@ -28,7 +82,24 @@
 
 <h2>Data Barang</h2>
 
-<h1><button>Tambah Barang</button></h1>
+<h1><button class="add-button">Tambah Barang</button></h1>
+
+<div class="form-container" id="form-container">
+    <h3>Tambah Barang</h3>
+    <label for="kategori">Kategori</label>
+    <input type="text" id="kategori" required>
+    
+    <label for="nama">Nama</label>
+    <input type="text" id="nama" required>
+    
+    <label for="merek">Merek</label>
+    <input type="text" id="merek">
+    
+    <label for="tahun">Tahun Perolehan</label>
+    <input type="number" id="tahun" required>
+    
+    <button id="add-item-button">Tambahkan</button>
+</div>
 
 <table>
     <thead>
@@ -41,7 +112,7 @@
             <th class="actions">Aksi</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="barang-table-body">
         <tr>
             <td>1</td>
             <td>ALAT DAN BAHAN</td>
@@ -50,7 +121,7 @@
             <td>2022</td>
             <td class="actions">
                 <button>Edit</button>
-                <button>Hapus</button>
+                <button class="delete-button">Hapus</button>
             </td>
         </tr>
         <tr>
@@ -61,64 +132,107 @@
             <td>2023</td>
             <td class="actions">
                 <button>Edit</button>
-                <button>Hapus</button>
+                <button class="delete-button">Hapus</button>
             </td>
         </tr>
         <tr>
-            <td>3</td>
+            <td>2</td>
             <td>ALAT DAN BAHAN</td>
-            <td>peragaan model torso pria</td>
+            <td>Buku paket</td>
             <td>-</td>
-            <td>2021</td>
+            <td>2023</td>
             <td class="actions">
                 <button>Edit</button>
-                <button>Hapus</button>
+                <button class="delete-button">Hapus</button>
             </td>
         </tr>
         <tr>
-            <tr>
-                <td>4</td>
-                <td>ALAT DAN BAHAN</td>
-                <td>peragaan model kerangka manusia dewasa</td>
-                <td>-</td>
-                <td>2021</td>
+            <td>2</td>
+            <td>ALAT DAN BAHAN</td>
+            <td>spidol</td>
+            <td>-</td>
+            <td>2023</td>
+            <td class="actions">
+                <button>Edit</button>
+                <button class="delete-button">Hapus</button>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>ALAT DAN BAHAN</td>
+            <td>pensil warna</td>
+            <td>-</td>
+            <td>2023</td>
+            <td class="actions">
+                <button>Edit</button>
+                <button class="delete-button">Hapus</button>
+            </td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </tbody>
+</table>
+
+<script>
+    document.querySelector('.add-button').addEventListener('click', function() {
+        const formContainer = document.getElementById('form-container');
+        formContainer.style.display = formContainer.style.display === 'none' || formContainer.style.display === '' ? 'block' : 'none';
+    });
+
+    document.getElementById('add-item-button').addEventListener('click', function() {
+        const kategori = document.getElementById('kategori').value;
+        const nama = document.getElementById('nama').value;
+        const merek = document.getElementById('merek').value || '-';
+        const tahun = document.getElementById('tahun').value;
+
+        if (kategori && nama && tahun) {
+            const tableBody = document.getElementById('barang-table-body');
+            const newRow = document.createElement('tr');
+            const rowCount = tableBody.rows.length + 1;
+
+            newRow.innerHTML = `
+                <td>${rowCount}</td>
+                <td>${kategori}</td>
+                <td>${nama}</td>
+                <td>${merek}</td>
+                <td>${tahun}</td>
                 <td class="actions">
                     <button>Edit</button>
-                    <button>Hapus</button>
+                    <button class="delete-button">Hapus</button>
                 </td>
-            </tr>
-            <tr>
-                <tr>
-                    <td>5</td>
-                    <td>ALAT DAN BAHAN</td>
-                    <td>peragaan model telinga</td>
-                    <td>-</td>
-                    <td>2021</td>
-                    <td class="actions">
-                        <button>Edit</button>
-                        <button>Hapus</button>
-                    </td>
-                </tr>
-                <tr>
-                    <tr>
-                        <td>6</td>
-                        <td>ALAT DAN BAHAN</td>
-                        <td>peragaan model mata</td>
-                        <td>-</td>
-                        <td>2021</td>
-                        <td class="actions">
-                            <button>Edit</button>
-                            <button>Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
+            `;
 
-            <td>7</td>
-            <td>ALAT DAN BAHAN</td>
-            <td>peragaan preparat  Biologi-30</td>
-            <td>-</td>
-            <td>2020</td>
-            <td class="actions">
-                <button>Edit</button>
-                <button>Hapus</button>
-            </td>
+            tableBody.appendChild(newRow);
+
+            // Reset the form
+            document.getElementById('kategori').value = '';
+            document.getElementById('nama').value = '';
+            document.getElementById('merek').value = '';
+            document.getElementById('tahun').value = '';
+
+            // Hide the form
+            document.getElementById('form-container').style.display = 'none';
+
+            // Re-attach delete event listener for new buttons
+            newRow.querySelector('.delete-button').addEventListener('click', function() {
+                if (confirm('Apakah Anda yakin ingin menghapus barang ini?')) {
+                    newRow.remove();
+                }
+            });
+        } else {
+            alert('Mohon isi semua kolom yang diperlukan.');
+        }
+    });
+
+    const deleteButtons = document.querySelectorAll('.delete-button');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            if (confirm('Apakah Anda yakin ingin menghapus barang ini?')) {
+                const row = this.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
