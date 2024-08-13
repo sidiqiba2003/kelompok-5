@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Penyusutan Aset</title>
+    <link rel="stylesheet" href="penyusutan.css">
+</head>
+<body>
+    <header>
+        <h1>Perhitungan Penyusutan Aset</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Masukkan Data Aset</h2>
+            <form id="depreciation-form">
+                <label for="asset-name">Nama Aset:</label>
+                <input type="text" id="asset-name" name="asset-name" required>
+                
+                <label for="purchase-price">Harga Pembelian (IDR):</label>
+                <input type="number" id="purchase-price" name="purchase-price" required>
+                
+                <label for="salvage-value">Nilai Sisa (IDR):</label>
+                <input type="number" id="salvage-value" name="salvage-value" required>
+                
+                <label for="useful-life">Umur Ekonomis (Tahun):</label>
+                <input type="number" id="useful-life" name="useful-life" required>
+                
+                <button type="submit">Hitung Penyusutan</button>
+            </form>
+        </section>
+        <section id="result">
+            <!-- Hasil perhitungan akan ditampilkan di sini -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Perusahaan Kami</p>
+    </footer>
+    <script src="penyusutan.js"></script>
+</body>
+</html>

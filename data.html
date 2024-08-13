@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Master</title>
+    <link rel="stylesheet" href="data master.css">
+</head>
+<body>
+    <header>
+        <h1>Data Master</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Daftar Item</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Kategori</th>
+                        <th>Lokasi</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Komputer</td>
+                        <td>Elektronik</td>
+                        <td>Laboratorium</td>
+                        <td>
+                            <button class="btn edit">Edit</button>
+                            <button class="btn delete">Hapus</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Printer</td>
+                        <td>Elektronik</td>
+                        <td>Kantor</td>
+                        <td>
+                            <button class="btn edit">Edit</button>
+                            <button class="btn delete">Hapus</button>
+                        </td>
+                    </tr>
+                    <!-- Tambahkan baris lebih banyak sesuai kebutuhan -->
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Tambah Data</h2>
+            <form id="data-form">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="category">Kategori:</label>
+                <input type="text" id="category" name="category" required>
+                
+                <label for="location">Lokasi:</label>
+                <input type="text" id="location" name="location" required>
+                
+                <button type="submit">Tambah</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Perusahaan Kami</p>
+    </footer>
+</body>
+</html>

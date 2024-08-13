@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Aset</title>
+    <link rel="stylesheet" href="data aset.css">
+</head>
+<body>
+    <header>
+        <h1>Data Aset</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Tambah Data Aset</h2>
+            <form id="data-aset-form">
+                <label for="asset-name">Nama Aset:</label>
+                <input type="text" id="asset-name" name="asset-name" required>
+                
+                <label for="asset-category">Kategori Aset:</label>
+                <input type="text" id="asset-category" name="asset-category" required>
+                
+                <label for="asset-location">Lokasi Aset:</label>
+                <input type="text" id="asset-location" name="asset-location" required>
+                
+                <label for="asset-year">Tahun Perolehan:</label>
+                <input type="number" id="asset-year" name="asset-year" required>
+                
+                <label for="asset-value">Nilai Aset:</label>
+                <input type="number" id="asset-value" name="asset-value" required>
+                
+                <button type="submit">Tambah Aset</button>
+            </form>
+            <table id="data-aset-table">
+                <thead>
+                    <tr>
+                        <th>Nama Aset</th>
+                        <th>Kategori</th>
+                        <th>Lokasi</th>
+                        <th>Tahun Perolehan</th>
+                        <th>Nilai</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data aset akan ditambahkan di sini -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <script src="data aset.js"></script>
+</body>
+</html>

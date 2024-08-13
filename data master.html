@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Master</title>
+    <link rel="stylesheet" href="data master.html">
+</head>
+<body>
+    <header>
+        <h1>Data Master</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Data Barang</h2>
+            <form id="data-barang-form">
+                <label for="item-name">Nama Barang:</label>
+                <input type="text" id="item-name" name="item-name" required>
+                
+                <label for="item-category">Kategori Barang:</label>
+                <input type="text" id="item-category" name="item-category" required>
+                
+                <label for="item-location">Lokasi Barang:</label>
+                <input type="text" id="item-location" name="item-location" required>
+                
+                <label for="item-year">Tahun Perolehan:</label>
+                <input type="number" id="item-year" name="item-year" required>
+                
+                <button type="submit">Tambah Barang</button>
+            </form>
+            <table id="data-barang-table">
+                <thead>
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Kategori</th>
+                        <th>Lokasi</th>
+                        <th>Tahun Perolehan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data barang akan ditambahkan di sini -->
+                </tbody>
+            </table>
+        </section>
+        
+        <section>
+            <h2>Data Kategori</h2>
+            <form id="data-kategori-form">
+                <label for="category-name">Nama Kategori:</label>
+                <input type="text" id="category-name" name="category-name" required>
+                
+                <button type="submit">Tambah Kategori</button>
+            </form>
+            <table id="data-kategori-table">
+                <thead>
+                    <tr>
+                        <th>Nama Kategori</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data kategori akan ditambahkan di sini -->
+                </tbody>
+            </table>
+        </section>
+        
+        <section>
+            <h2>Data Lokasi</h2>
+            <form id="data-lokasi-form">
+                <label for="location-name">Nama Lokasi:</label>
+                <input type="text" id="location-name" name="location-name" required>
+                
+                <button type="submit">Tambah Lokasi</button>
+            </form>
+            <table id="data-lokasi-table">
+                <thead>
+                    <tr>
+                        <th>Nama Lokasi</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data lokasi akan ditambahkan di sini -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Perusahaan Kami</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
